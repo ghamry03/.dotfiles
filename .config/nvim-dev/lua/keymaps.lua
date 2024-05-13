@@ -1,5 +1,5 @@
 local map = function(mode, lhs, rhs, desc)
-  vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc })
+  vim.keymap.set(mode, lhs, rhs, { desc = desc })
 end
 
 local leader = function(key)
@@ -62,6 +62,44 @@ map('n', '<leader>wx', '<C-w>x', 'Swap current with next window')
 
 map('n', '<C-u>', '<C-u>zz', 'Half a page up')
 map('n', '<C-d>', '<C-d>zz', 'Half a page down')
+
+map('n', '<leader>ha', "<cmd>lua require('harpoon.mark').add_file()<CR>", 'Harpoon mark file')
+map('n', '<leader>hh', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", 'Harpoon toggle menu')
+map('n', '<leader>ht', function()
+  local input = vim.fn.input 'file index: '
+  local num = tonumber(input)
+  print ' '
+  if num then
+    print(require('harpoon.ui').nav_file(num))
+  end
+end, 'Harpoon toggle menu')
+map('n', '<leader>h1', function()
+  require('harpoon.ui').nav_file(1)
+end)
+map('n', '<leader>h2', function()
+  require('harpoon.ui').nav_file(2)
+end)
+map('n', '<leader>h3', function()
+  require('harpoon.ui').nav_file(3)
+end)
+map('n', '<leader>h4', function()
+  require('harpoon.ui').nav_file(4)
+end)
+map('n', '<leader>h5', function()
+  require('harpoon.ui').nav_file(5)
+end)
+map('n', '<leader>h6', function()
+  require('harpoon.ui').nav_file(6)
+end)
+map('n', '<leader>h7', function()
+  require('harpoon.ui').nav_file(7)
+end)
+map('n', '<leader>h8', function()
+  require('harpoon.ui').nav_file(8)
+end)
+map('n', '<leader>h9', function()
+  require('harpoon.ui').nav_file(9)
+end)
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

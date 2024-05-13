@@ -1,21 +1,30 @@
 return {
-    {
-        "letieu/btw.nvim",
-        config = function()
-            require('btw').setup()
-        end,
+  {
+    'letieu/btw.nvim',
+    config = function()
+      require('btw').setup()
+    end,
+  },
+  {
+    'lukas-reineke/headlines.nvim',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    config = true,
+    opts = {},
+  },
+  {
+    'mistricky/codesnap.nvim',
+    build = 'make',
+    opts = {
+      watermark = '',
     },
-    {
-        "lukas-reineke/headlines.nvim",
-        dependencies = "nvim-treesitter/nvim-treesitter",
-        config = true,
-        opts = {}
+  },
+  {
+    'ThePrimeagen/harpoon',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
     },
-    {
-        "mistricky/codesnap.nvim",
-        build = "make",
-        opts = {
-            watermark = ""
-        }
-    }
+    opts = {
+      global_settings = {},
+    },
+  },
 }
